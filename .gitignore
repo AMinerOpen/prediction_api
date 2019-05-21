@@ -2,6 +2,8 @@
 .vscode
 .idea/*
 .idea
-model/*
+*.pkl
+*.csv
+*bin
 __pycache__
 __pycache__/*
