@@ -24,3 +24,6 @@ conda install -c conda-forge requests
 
 ## 模型下载
 
+[下载地址](https://lfs.aminer.cn/misc/model.zip)
+
+请将压缩包内的内容放入model文件夹下
