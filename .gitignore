@@ -1,0 +1,7 @@
+.vscode/*
+.vscode
+.idea/*
+.idea
+model/*
+__pycache__
+__pycache__/*
