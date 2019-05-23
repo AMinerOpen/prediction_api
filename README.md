@@ -5,12 +5,12 @@ _AMiner Prediction API_ is a toolkit for science data prediction, such as schola
 
 ## Pre-requirement
 
-`anaconda` is strongly recommended for environment configuration. Additionally, some libraries are requied:
+[`anaconda`](https://www.anaconda.com/) is strongly recommended for environment configuration. Additionally, some libraries are requied:
 
-* `fasttext`
-* `scikit-learn`
-* `jieba`
-* `requests`
+* [`fasttext`](https://fasttext.cc/)
+* [`scikit-learn`](https://scikit-learn.org/)
+* [`jieba`](https://github.com/fxsjy/jieba)
+* [`requests`](https://2.python-requests.org/)
 
 Use following commands to install these libraries:
 
