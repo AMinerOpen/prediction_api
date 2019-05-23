@@ -1,7 +1,7 @@
 # Prediction API
 ## Introduction
 
-_AMiner Prediction API_ is a toolkit for science data prediction, such as scholar portrait property prediction. The toolkit aims to utilize science data to provide more intelligent functionality for global researchers. All algorithms and models which the toolkit uses are derived from [AMiner](https://aminer.cn).
+_AMiner Prediction API_ is a toolkit for science data prediction, such as scholar portrait property prediction. The toolkit aims to utilize science data and machine learning algorithms to provide more intelligent functionality for global researchers. All algorithms and models which the toolkit uses are derived from [AMiner](https://aminer.cn).
 
 ## Pre-requirement
 
