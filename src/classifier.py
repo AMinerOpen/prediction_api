@@ -26,7 +26,7 @@ class Classifier:
             fastText.load_model(os.path.join(path, 'clf1.bin')),
             fastText.load_model(os.path.join(path, 'clf2.bin')),
         ]
-        self._zh_chars = re.compile('[^\u4e00-\u9fff]')
+        self._zh_chars = re.compile(r'[^\u4e00-\u9fff]+')
         self._id2name = dict()
         with open(os.path.join(data_path, 'nsfc_subject.csv'), encoding='utf-8') as f:
             for line in f:
@@ -49,7 +49,7 @@ class Classifier:
         if not lang_zh:
             text_zh = translatation_func(pubs)
         else:
-            text_zh = '.'.join(pubs)
+            text_zh = pubs
         words = []
         for s in text_zh:
             # delete all characters which are not Chinese
@@ -88,7 +88,7 @@ class Classifier:
             for label, prob in zip(value[0],value[1]):  # combine each label and its prob into a pair
                 subject_code = self._get_code(label)
                 new_value.append({
-                    'code':subject_code,
+                    'code': subject_code,
                     'name': self._get_name(subject_code),
                     'p': prob
                 })

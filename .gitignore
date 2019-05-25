@@ -4,6 +4,7 @@
 .idea
 *.pkl
 *.csv
-*bin
+*.bin
+*.json
 __pycache__
 __pycache__/*
