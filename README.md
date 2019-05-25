@@ -39,3 +39,7 @@ Toolkit depends on some pre-trained model files which can be downloaded at follo
 [Download](https://lfs.aminer.cn/misc/model.zip)
 
 Extract it and move all files into `model` directory before testing code.
+
+## Document
+
+[NSFC Subject Classifier](https://github.com/AMinerOpen/prediction_api/tree/master/src)
