@@ -23,7 +23,7 @@ A **list** of **strings**. The titles of publications.
 
 ##### level
 
-Classification level$(1,2,3)$, for other numbers you will get all three levels.
+Classification level(1,2,3), for other numbers you will get all three levels.
 
 [NSFC](http://www.nsfc.gov.cn/nsfc/cen/xmzn/2019xmzn/15/index.html) uses a three-level classification. Use graph theory as an example, 
 
