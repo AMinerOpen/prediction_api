@@ -42,4 +42,4 @@ Extract it and move all files into `model` directory before testing code.
 
 ## Document
 
-[NSFC Subject Classifier](https://github.com/AMinerOpen/prediction_api/tree/master/src)
+[NSFC Subject Classifier](https://github.com/AMinerOpen/prediction_api/blob/master/doc/NSFC_Subject_Classifier.md)
