@@ -18,4 +18,5 @@ def youdao_translate(text):
         tgt = [t['tgt'] for t in trans_data[0]]
         return tgt
     except Exception:
+        # print('There is an error in translation')
         return []

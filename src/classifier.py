@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 Introduction:
-    Classifier is a class which is used to classify subjects.
-    It depends on the classification of Natural Science Foundation of China(NSFC).
+    Classifier is a class which is used to classify publications according to their subjects. It depends on the classification of [Natural Science Foundation of China(NSFC)](http://www.nsfc.gov.cn/nsfc/cen/xmzn/2019xmzn/15/index.html). 
 Usage:
     >>> nsfc = Classifier()
     >>> pub_titles = ['Annotating gene sets by mining large literature collections with protein networks.']
@@ -45,9 +44,12 @@ class Classifier:
         '''
         return label[9:]
 
-    def _tokenize(self, pubs):
+    def _tokenize(self, pubs, lang_zh=False, translatation_func=youdao_translate):
         # Convert a sequence of characters into a sequence of tokens
-        text_zh = youdao_translate(pubs)
+        if not lang_zh:
+            text_zh = translatation_func(pubs)
+        else:
+            text_zh = '.'.join(pubs)
         words = []
         for s in text_zh:
             # delete all characters which are not Chinese
@@ -55,12 +57,13 @@ class Classifier:
             words.extend(jieba.lcut(all_zh))
         return words
 
-    def classify(self, pub_titles, level=0, ntop=5):
+    def classify(self, pub_titles, level=0, ntop=5, lang_zh=False, translatation_func=youdao_translate):
         '''
-        Use publication titles to classify which subjects these publications belong to
+        Use publications' titles to classify which subjects these publications belong to.
         :param pub_titles: A list of publication titles
         :param level: Classification level(1,2,3), for other numbers you will get all of levels
         :param ntop: How many subjects in each level does the classifier select
+        :param ntop: 
         :return: A dictionary:
                  'level{x}'(x = 1, 2, 3)':
                      {
@@ -70,7 +73,9 @@ class Classifier:
                      }
         '''
         ret = {}
-        words = self._tokenize(pub_titles)
+        words = self._tokenize(pub_titles, lang_zh=lang_zh, translatation_func=translatation_func)
+        if words == []:
+            return ret
         text = ' '.join(words)
         for i in range(0, 3):
             if i + 1 == level or level not in [1, 2, 3]:
