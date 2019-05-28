@@ -194,5 +194,5 @@ class AIClassifier:
 if __name__ == '__main__':
     ai_nsfc = AIClassifier()
     words = ['search engine']
-    subject = ai_nsfc.classify(words)
+    subject = ai_nsfc.get_tree(words)
     print(subject)

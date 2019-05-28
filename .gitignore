@@ -6,5 +6,15 @@
 *.csv
 *.bin
 *.json
+jobhopping/*
 __pycache__
 __pycache__/*
+model/student/model.ckpt-1000.meta
+model/student/model.ckpt-1000.index
+model/student/model.ckpt-1000.data-00000-of-00001
+model/student/graph.pbtxt
+model/student/eval/events.out.tfevents.1539419480.Juliuss-MacBook-Pro.local
+model/student/eval/events.out.tfevents.1539416954.Juliuss-MacBook-Pro.local
+model/student/checkpoint
+model/jobhopping/orgID2orgname
+model/jobhopping/model

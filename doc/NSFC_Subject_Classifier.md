@@ -99,6 +99,14 @@ subject:
 }
 ```
 
+## API
+
+### classify
+
+![](https://img.shields.io/badge/http-post-blue.svg)
+
+https://innovaapi.aminer.cn/tools/v1/predict/nsfc
+
 ## Accuracy
 
 | level |  top1  |  top5  |
