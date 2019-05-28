@@ -60,7 +60,7 @@ class AIClassifier:
                 self._insert_subject2tree(k, p, subject_tree)
         return self._format_tree(subject_tree)
 
-    def classify_level(self, words, level=1, zh=False):
+    def classify_level(self, words, level=1, lang_zh=False):
         '''
         Get the most likely subject names at the given level according to some key words
         :param words: A key words list. Accept both English words and Chinese words
@@ -71,7 +71,7 @@ class AIClassifier:
         if level not in [1, 2, 3]:
             return []
         main_subjects = self._get_all_level_distribution(words)
-        if zh:
+        if lang_zh:
             ret_iter = map(lambda x: self._get_zh_name(x), main_subjects[level - 1].keys())
         else:
             ret_iter = map(lambda x: self._get_name(x), main_subjects[level - 1].keys())
