@@ -20,7 +20,7 @@ Get a subject tree according to some keywords.
 
 ##### words
 
-A **list** of key words.
+A **list** of keywords.
 
 #### Return value
 
@@ -72,23 +72,21 @@ Return value:
 ]
 ```
 
-
-
 ### classify_level
 
 ```python
-classify_level(words, level=1, zh=False):
+classify_level(words, level=1, lang_zh=False):
 ```
 
 #### Introduction
 
- Classify which subjects these key words belong to.
+ Classify which subjects these keywords belong to.
 
 #### Parameters
 
 ##### words
 
-A **list** of key words.
+A **list** of keywords.
 
 ##### level
 
@@ -102,7 +100,7 @@ A01 mathematics
   - A011602 graph theory
 ```
 
-##### zh
+##### lang_zh
 
 Whether the return values are Chinese or not.
 
@@ -127,13 +125,13 @@ Return Value:
 
 ### classify
 
- Get the classification of the key words and its subject tree
+ Get the classification of the keywords and a subject tree
 
 #### Parameters
 
 ##### words
 
-A **list** of key words. Accept both Chinese words and English words.
+A **list** of keywords. Accept both Chinese words and English words.
 
 #### Return value
 
@@ -192,3 +190,111 @@ Return Value:
     ]
 }
 ```
+
+## API
+
+### https://innovaapi.aminer.cn/tools/v1/predict/nsfc/ai
+
+![](https://img.shields.io/badge/http-post-blue.svg)
+
+An online version of the method "classify"
+
+### Request body
+
+##### words
+
+A **list** of key words. Accept both Chinese words and English words.
+
+### An example
+
+```http
+POST /tools/v1/predict/nsfc/ai? HTTP/1.1
+Host: innovaapi.aminer.cn
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.13.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 72d90554-ead1-4606-be9e-ce64a9b38391,354aaeaa-976a-406c-902b-d3d1e52389f7
+Host: innovaapi.aminer.cn
+accept-encoding: gzip, deflate
+content-length: 49
+Connection: keep-alive
+cache-control: no-cache
+
+{
+    "words": [
+            "search engine"
+    ]
+}
+```
+
+Return Message:
+
+```json
+{
+    "status": 0,
+    "message": "success",
+    "data": {
+        "level1": [
+            {
+                "p": 1.0,
+                "name": "Artificial Intelligence",
+                "name_zh": "人工智能"
+            }
+        ],
+        "level2": [
+            {
+                "p": 0.6236383458601308,
+                "name": "Natural Language Processing",
+                "name_zh": "自然语言处理"
+            },
+            {
+                "p": 0.3763616541398693,
+                "name": "Knowledge Representation And Processing",
+                "name_zh": "知识表示与处理"
+            }
+        ],
+        "level3": [
+            {
+                "p": 0.6106190412551927,
+                "name": "Text Retrieval, Mining And Information Extraction",
+                "name_zh": "文本检索、挖掘与信息抽取"
+            },
+            {
+                "p": 0.3893809587448072,
+                "name": "Knowledge Discovery And Data Mining",
+                "name_zh": "知识发现与数据挖掘"
+            }
+        ],
+        "tree": [
+            {
+                "name": "人工智能",
+                "value": 1.0,
+                "children": [
+                    {
+                        "name": "自然语言处理",
+                        "value": 0.6236383458601308,
+                        "children": [
+                            {
+                                "name": "文本检索、挖掘与信息抽取",
+                                "value": 0.6106190412551927
+                            }
+                        ]
+                    },
+                    {
+                        "name": "知识表示与处理",
+                        "value": 0.3763616541398693,
+                        "children": [
+                            {
+                                "name": "知识发现与数据挖掘",
+                                "value": 0.3893809587448072
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+

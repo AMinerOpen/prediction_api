@@ -101,11 +101,145 @@ subject:
 
 ## API
 
-### classify
+### https://innovaapi.aminer.cn/tools/v1/predict/nsfc
 
 ![](https://img.shields.io/badge/http-post-blue.svg)
 
-https://innovaapi.aminer.cn/tools/v1/predict/nsfc
+An online version of the method "classify"
+
+#### Request body
+
+##### titles
+
+A **list** of **strings**. The titles of publications.
+
+#### An example
+
+```http
+POST /tools/v1/predict/nsfc? HTTP/1.1
+Host: innovaapi.aminer.cn
+Content-Type: application/json
+cache-control: no-cache
+Postman-Token: 0d145f77-f3d7-4bf0-8521-f22d2d008ba0
+
+{
+    "titles": [
+        "On the Power of Massive Text Data.",
+        "GeoBurst+: Effective and Real-Time Local Event Detection in Geo-Tagged Tweet Streams.",
+        "Entity Set Search of Scientific Literature: An Unsupervised Ranking Approach.",
+        "CoType: Joint Extraction of Typed Entities and Relations with Knowledge Bases.",
+        "PRED: Periodic Region Detection for Mobility Modeling of Social Media Users."
+    ]
+}
+```
+
+Return Message:
+
+```json
+{
+    "status": 0,
+    "message": "success",
+    "data": {
+        "level1": [
+            {
+                "code": "A03",
+                "name": "天文学",
+                "p": 0.07537554949522018
+            },
+            {
+                "code": "C06",
+                "name": "遗传学与生物信息学",
+                "p": 0.07491405308246613
+            },
+            {
+                "code": "H31",
+                "name": "药理学",
+                "p": 0.0605212077498436
+            },
+            {
+                "code": "C05",
+                "name": "生物物理、生物化学与分子生物学",
+                "p": 0.053404878824949265
+            },
+            {
+                "code": "D02",
+                "name": "地质学",
+                "p": 0.05324738845229149
+            }
+        ],
+        "level2": [
+            {
+                "code": "D0309",
+                "name": "环境地球化学",
+                "p": 0.07380235195159912
+            },
+            {
+                "code": "E0804",
+                "name": "环境工程",
+                "p": 0.0457393117249012
+            },
+            {
+                "code": "E0405",
+                "name": "露天开采与边坡工程",
+                "p": 0.04072700813412666
+            },
+            {
+                "code": "H3105",
+                "name": "抗肿瘤药物药理",
+                "p": 0.03553887456655502
+            },
+            {
+                "code": "C0403",
+                "name": "动物生理及行为学",
+                "p": 0.02961149252951145
+            }
+        ],
+        "level3": [
+            {
+                "code": "C200703",
+                "name": "食品生物污染与控制",
+                "p": 0.17296439409255981
+            },
+            {
+                "code": "C200102",
+                "name": "粮油食品原料学",
+                "p": 0.14757823944091797
+            },
+            {
+                "code": "A030302",
+                "name": "变星和激变变星、双星和多星系统",
+                "p": 0.14537328481674194
+            },
+            {
+                "code": "E080402",
+                "name": "污水处理与资源化",
+                "p": 0.05403073877096176
+            },
+            {
+                "code": "C050604",
+                "name": "电离辐射生物物理与放射生物学",
+                "p": 0.05319990590214729
+            }
+        ]
+    }
+}
+```
+
+### https://innovaapi.aminer.cn/tools/v1/predict/nsfc/person
+
+![](https://img.shields.io/badge/http-get-brightgreen.svg)
+
+Get a professor's research interests according to his publications' titles.
+
+#### Parameters
+
+pid: the professor's id in [AMiner](https://aminer.cn).
+
+For example, you want to know Qiang Yang's research interests. First, you should search Qiang Yang in  [AMiner](https://aminer.cn), and get his page url https://www.aminer.cn/profile/qiang-yang/53f48041dabfae963d25910a. His id in [AMiner](https://aminer.cn) is the suffix of the url string `53f48041dabfae963d25910a`.
+
+#### An example
+
+https://innovaapi.aminer.cn/tools/v1/predict/nsfc/person?pid=53f48041dabfae963d25910a
 
 ## Accuracy
 
