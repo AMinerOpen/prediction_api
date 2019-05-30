@@ -6,6 +6,7 @@
 *.csv
 *.bin
 *.json
+*.html
 jobhopping/*
 __pycache__
 __pycache__/*
