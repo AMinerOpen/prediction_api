@@ -98,6 +98,6 @@ class Classifier:
 
 if __name__ == '__main__':
     nsfc = Classifier()
-    pub_titles = ['Annotating gene sets by mining large literature collections with protein networks.']
+    pub_titles = ['基于多通道卷积神经网络的中文微博情感分析']
     subject = nsfc.classify(pub_titles)
     print(subject)

@@ -66,7 +66,7 @@ If there are some errors in the method, you will get a `{}`
 
 ```python
 nsfc = Classifier()
-pub_titles = ['Annotating gene sets by mining large literature collections with protein networks.']
+pub_titles = ['基于多通道卷积神经网络的中文微博情感分析']
 subject = nsfc.classify(pub_titles)
 ```
 
@@ -75,26 +75,24 @@ subject:
 ```python
 {
     'level1': [
-        {'code': 'F03', 'name': '自动化', 'p': 0.5681461691856384},
-        {'code': 'B06', 'name': '化学工程及工业化学', 'p': 0.06985147297382355},
-        {'code': 'E04', 'name': '冶金与矿业', 'p': 0.05790099501609802},
-        {'code': 'F02', 'name': '计算机科学', 'p': 0.04791523516178131},
-        {'code': 'C13', 'name': '农学基础与作物学', 'p': 0.04653266444802284}
+        {'code': 'F02', 'name': '计算机科学', 'p': 0.9745969772338867},
+        {'code': 'F01', 'name': '电子学与信息系统', 'p': 0.02385014481842518},
+        {'code': 'B05', 'name': '分析化学', 'p': 0.0005464374553412199},
+        {'code': 'F03', 'name': '自动化', 'p': 0.00039022043347358704},
+        {'code': 'H18', 'name': '影像医学与生物医学工程', 'p': 0.0001973187318071723}
     ], 
     'level2': [
-        {'code': 'A0114', 'name': '应用数学方法', 'p': 0.5198239684104919},
-        {'code': 'C1301', 'name': '农学基础', 'p': 0.2457106113433838},
-        {'code': 'C0505', 'name': '系统生物学', 'p': 0.03674702346324921},
-        {'code': 'F0302', 'name': '系统科学与系统工程', 'p': 0.034390855580568314},
-        {'code': 'C1004', 'name': '生物电子学', 'p': 0.0336870439350605}
+        {'code': 'F0206', 'name': '自然语言理解与机器翻译', 'p': 0.8545559048652649},
+        {'code': 'F0205', 'name': '计算机应用技术', 'p': 0.08089018613100052},
+        {'code': 'F0305', 'name': '人工智能与知识工程', 'p': 0.023599255830049515},
+        {'code': 'B0512', 'name': '化学计量学与化学信息学', 'p': 0.0228357}
     ], 
     'level3': [
-        {'code': 'A011403', 'name': '生物数学', 'p': 0.9948329925537109},
-        {'code': 'A011405', 'name': '分形论及应用', 'p': 0.005175579339265823},
-        {'code': 'F030204', 'name': '系统生物学中的复杂性分析与建模', 'p':1.471634732e-05},
-        {'code': 'F030114', 'name': '自适应与学习控制', 'p': 1.187794805446174e-05},
-        {'code': 'A011004', 'name': '极限理论', 'p': 1.175022862298647e-05
-        }
+        {'code': 'F020601', 'name': '计算语言学', 'p': 0.9999170303344727},
+        {'code': 'F020504', 'name': '生物信息计算', 'p': 4.625070505426265e-05},
+        {'code': 'F020506', 'name': '人机界面技术', 'p': 2.3111495465855114e-05},
+        {'code': 'F010403', 'name': '物联网', 'p': 2.2251791961025447e-05},
+        {'code': 'F010303', 'name': '协作通信', 'p': 2.0015930203953758e-05}
     ]
 }
 ```
@@ -119,16 +117,19 @@ A **list** of **strings**. The titles of publications.
 POST /tools/v1/predict/nsfc? HTTP/1.1
 Host: innovaapi.aminer.cn
 Content-Type: application/json
+User-Agent: PostmanRuntime/7.13.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 5f0fbe87-e333-40b1-b9c3-23f64c137c15,1927af8e-4a86-4319-8024-684d6b9e46f7
+Host: innovaapi.aminer.cn
+accept-encoding: gzip, deflate
+content-length: 100
+Connection: keep-alive
 cache-control: no-cache
-Postman-Token: 0d145f77-f3d7-4bf0-8521-f22d2d008ba0
 
 {
     "titles": [
-        "On the Power of Massive Text Data.",
-        "GeoBurst+: Effective and Real-Time Local Event Detection in Geo-Tagged Tweet Streams.",
-        "Entity Set Search of Scientific Literature: An Unsupervised Ranking Approach.",
-        "CoType: Joint Extraction of Typed Entities and Relations with Knowledge Bases.",
-        "PRED: Periodic Region Detection for Mobility Modeling of Social Media Users."
+        "基于多通道卷积神经网络的中文微博情感分析"
     ]
 }
 ```
@@ -142,83 +143,83 @@ Return Message:
     "data": {
         "level1": [
             {
-                "code": "A03",
-                "name": "天文学",
-                "p": 0.07537554949522018
+                "code": "F02",
+                "name": "计算机科学",
+                "p": 0.9745969772338867
             },
             {
-                "code": "C06",
-                "name": "遗传学与生物信息学",
-                "p": 0.07491405308246613
+                "code": "F01",
+                "name": "电子学与信息系统",
+                "p": 0.02385014481842518
             },
             {
-                "code": "H31",
-                "name": "药理学",
-                "p": 0.0605212077498436
+                "code": "B05",
+                "name": "分析化学",
+                "p": 0.0005464374553412199
             },
             {
-                "code": "C05",
-                "name": "生物物理、生物化学与分子生物学",
-                "p": 0.053404878824949265
+                "code": "F03",
+                "name": "自动化",
+                "p": 0.00039022043347358704
             },
             {
-                "code": "D02",
-                "name": "地质学",
-                "p": 0.05324738845229149
+                "code": "H18",
+                "name": "影像医学与生物医学工程",
+                "p": 0.0001973187318071723
             }
         ],
         "level2": [
             {
-                "code": "D0309",
-                "name": "环境地球化学",
-                "p": 0.07380235195159912
+                "code": "F0206",
+                "name": "自然语言理解与机器翻译",
+                "p": 0.8545559048652649
             },
             {
-                "code": "E0804",
-                "name": "环境工程",
-                "p": 0.0457393117249012
+                "code": "F0205",
+                "name": "计算机应用技术",
+                "p": 0.08089018613100052
             },
             {
-                "code": "E0405",
-                "name": "露天开采与边坡工程",
-                "p": 0.04072700813412666
+                "code": "F0305",
+                "name": "人工智能与知识工程",
+                "p": 0.023599255830049515
             },
             {
-                "code": "H3105",
-                "name": "抗肿瘤药物药理",
-                "p": 0.03553887456655502
+                "code": "B0512",
+                "name": "化学计量学与化学信息学",
+                "p": 0.022835755720734596
             },
             {
-                "code": "C0403",
-                "name": "动物生理及行为学",
-                "p": 0.02961149252951145
+                "code": "F0104",
+                "name": "通信网络",
+                "p": 0.01253295037895441
             }
         ],
         "level3": [
             {
-                "code": "C200703",
-                "name": "食品生物污染与控制",
-                "p": 0.17296439409255981
+                "code": "F020601",
+                "name": "计算语言学",
+                "p": 0.9999170303344727
             },
             {
-                "code": "C200102",
-                "name": "粮油食品原料学",
-                "p": 0.14757823944091797
+                "code": "F020504",
+                "name": "生物信息计算",
+                "p": 0.00004625070505426265
             },
             {
-                "code": "A030302",
-                "name": "变星和激变变星、双星和多星系统",
-                "p": 0.14537328481674194
+                "code": "F020506",
+                "name": "人机界面技术",
+                "p": 0.000023111495465855114
             },
             {
-                "code": "E080402",
-                "name": "污水处理与资源化",
-                "p": 0.05403073877096176
+                "code": "F010403",
+                "name": "物联网",
+                "p": 0.000022251791961025447
             },
             {
-                "code": "C050604",
-                "name": "电离辐射生物物理与放射生物学",
-                "p": 0.05319990590214729
+                "code": "F010303",
+                "name": "协作通信",
+                "p": 0.000020015930203953758
             }
         ]
     }
