@@ -7,6 +7,7 @@
 *.bin
 *.json
 *.html
+*.pk
 jobhopping/*
 __pycache__
 __pycache__/*
