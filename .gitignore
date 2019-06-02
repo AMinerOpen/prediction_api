@@ -20,3 +20,5 @@ model/student/eval/events.out.tfevents.1539416954.Juliuss-MacBook-Pro.local
 model/student/checkpoint
 model/jobhopping/orgID2orgname
 model/jobhopping/model
+model/student/orgID2orgname
+model/student/model
