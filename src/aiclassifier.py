@@ -190,9 +190,3 @@ class AIClassifier:
                 break
         self._norm(ret)
         return ret
-
-if __name__ == '__main__':
-    ai_nsfc = AIClassifier()
-    words = ['search engine']
-    subject = ai_nsfc.get_tree(words)
-    print(subject)

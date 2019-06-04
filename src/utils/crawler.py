@@ -33,10 +33,10 @@ def baidu_parse(html):
         items = soup.find_all('div', {'class': 'result c-container '})
     for node in items:
         try:
-            abstract_node = node.find('div',{'class': 'c-abstract c-abstract-en'})
+            abstract_node = node.find('div', {'class': 'c-abstract c-abstract-en'})
             if not abstract_node:
                 abstract_node = node.find('div', {'class': 'c-abstract'})
-            ctools = node.find('div',{'class': 'c-tools'})
+            ctools = node.find('div', {'class': 'c-tools'})
             abstract = abstract_node.text
             title = json.loads(ctools['data-tools'].replace('\\', ''))['title']
             ulist.append({

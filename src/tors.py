@@ -1,8 +1,9 @@
 '''
 Introduction:
-Predict a scholar's identity (teacher or student) and degree.
+Predict a scholar's identity (teacher or student) and his or her degree.
 usage:
->>> TorS.predict(pc=10, cn=10000, hi=40, gi=0, year_range=14)
+>>> identity = TorS()
+>>> identity.predict(pc=10, cn=10000, hi=40, gi=0, year_range=14)
 '''
 import os
 import math
@@ -43,7 +44,7 @@ class TorS:
         '''
         features = dict(pc=pc, cn=cn, hi=hi, gi=gi, year_range=year_range)
         input = pd.read_json(json.dumps([features]))
-        output = self._md.predict(input_fn=lambda: self.preprocess(input))
+        output = self._md.predict(input_fn=lambda: self._pre_progress(input))
         ans = [(int(item['class_ids'][0]), item['probabilities'][item['class_ids'][0]]) for item in output][0]
         label = 'student' if ans[0] == 1 else 'teacher'
         if label == 'teacher':
@@ -57,12 +58,8 @@ class TorS:
         }
         return ret
 
-    def preprocess(self, features):
-        '''
-        Normalize and pass features to nn classifier for prediction
-        :param feature: A pandas DataFrame of features
-        :return: Normalized features of input.
-        '''
+    def _pre_progress(self, features):
+        # Normalize and pass features to nn classifier for prediction
         max_year_range = 53 # 53 is the max year_range in training set.
         normalized_features = pd.DataFrame()
         for feature in ['pc', 'cn', 'hi', 'gi']:

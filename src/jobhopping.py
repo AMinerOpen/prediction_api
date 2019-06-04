@@ -2,7 +2,8 @@
 Introduction:
     JobHopping is a class which is used to predict where a scholar may hop to.
 Usage:
->>> JobHopping.predict('tsinghua university')
+>>> j = JobHopping()
+>>> print(j.predict('tsinghua university'))
 '''
 import pickle
 import os
@@ -10,14 +11,14 @@ import torch
 import torch.nn as nn
 import heapq
 import numpy as np
-from libs import model_path
+from config import model_path
 
 os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 data_path = os.path.join(model_path, 'jobhopping')
 
 
 class GRUfn(nn.Sequential):
-    # pytorch model
+
     def __init__(self, input_size, hidden_size, output_size):
         super(GRUfn, self).__init__()
         self.hidden_size = hidden_size
@@ -46,25 +47,25 @@ class GRUfn(nn.Sequential):
         t = self.sig(t)
         return t
 
-class JobHopping:
 
+class JobHopping:
 
     def __init__(self):
         self._id2name = {}
         self._name2id = {}
         self._model_data = torch.load(os.path.join(data_path, 'model'))
-        self._affi = _model_data['affi_tensor']
+        self._affi = self._model_data['affi_tensor']
 
         with open(os.path.join(data_path, 'orgID2orgname'), 'rb') as file:
             _data = pickle.load(file)
             for i, v in enumerate(_data):
-                _id2name[i] = v.split('+')[0]
-                _name2id.setdefault(v.split('+')[0],i)
+                self._id2name[i] = v.split('+')[0]
+                self._name2id.setdefault(v.split('+')[0], i)
 
         self._INPUT_DIM = 128
-        self._OUTPUT_DIM = len(_id2name.keys())
-        self._model = GRUfn(_INPUT_DIM, 512, _OUTPUT_DIM)
-        self._model.load_state_dict(_model_data['state_dict'])
+        self._OUTPUT_DIM = len(self._id2name.keys())
+        self._model = GRUfn(self._INPUT_DIM, 512, self._OUTPUT_DIM)
+        self._model.load_state_dict(self._model_data['state_dict'])
 
     def predict(self, name, ntop=3):
         '''
@@ -81,7 +82,7 @@ class JobHopping:
         name = name.lower()
         if name not in self._name2id.keys():
             return None
-        zb = self.id2PackedSequence(self._name2id[name])
+        zb = self._id2PackedSequence(self._name2id[name])
         fout = self._model(zb, batch=1)
         ans = heapq.nlargest(ntop, enumerate(fout.data.numpy()[0]), key=lambda x:x[1])
         ret = []
@@ -93,7 +94,7 @@ class JobHopping:
         self._softmax(ret)
         return ret
 
-    def id2PackedSequence(self, affi_id):
+    def _id2PackedSequence(self, affi_id):
         # In pytorch, all RNN modules accept packed sequences as inputs.
         ret = torch.zeros(1, 1, self._INPUT_DIM)
         indices = torch.tensor(affi_id, device='cpu', dtype=torch.long)
@@ -101,10 +102,7 @@ class JobHopping:
         return torch.nn.utils.rnn.pack_padded_sequence(ret, [1])
 
     def _softmax(self, affis):
-        '''
-        Softmax is a generalization of logistic function that "squashes"(maps) a vector of arbitrary real values
-        to a vector of real values in the range (0, 1) that add up to 1.
-        '''
+        # Softmax is a generalization of logistic function that "squashes"(maps) a vector of arbitrary real values to a vector of real values in the range (0, 1) that add up to 1.
         s = sum(map(lambda x: np.exp(x['p']), affis))
         for dict in affis:
             dict['p'] = round(np.exp(dict['p'])/s, 2)
