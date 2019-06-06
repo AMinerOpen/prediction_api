@@ -3,7 +3,7 @@ Introduction:
     Gender is a class which is used to predict a person's gender.
 Usage:
 >>> g = Gender()
->>> print(g.predict(name='Jie Tang', org='Tsinghua University', image_url='http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110330101939787483549/20190321114128398502759.jpg'))
+>>> print(g.predict(name='Jie Tang', org='Tsinghua University'))
 '''
 import os
 import json
@@ -77,6 +77,7 @@ class Gender:
                 }
         '''
         query = quote_plus('{} {} his OR her'.format(name, org))
+        print(query)
         if source == 'baidu':
             url = 'https://www.baidu.com/s?wd={}&usm=1&tn=baidu&f=13&ie=utf-8&nojc=1&rqlang=en&rn=100'.format(query)
         elif source == 'google':
@@ -91,6 +92,7 @@ class Gender:
             page_info = baidu_parse(html)
         else:
             page_info = google_parse(html)
+        print(page_info)
         if not page_info:
             return {
                 'male': 0.5,
@@ -142,7 +144,7 @@ class Gender:
                     'male': 0.5,
                     'female': 0.5
                 }
-            # print(r.json())
+            print(r.json())
             rdict = r.json()
             f = rdict.get('faces', [])[0]
             gender = f.get('attributes', {}).get('gender', {}).get('value')
@@ -150,8 +152,7 @@ class Gender:
                 'male': 1 if gender == 'Male' else 0,
                 'female': 1 if gender == 'Female' else 0
             }
-        except Exception as ex:
-            print(ex)
+        except Exception:
             return {
                 'male': 0.5,
                 'female': 0.5
@@ -159,7 +160,7 @@ class Gender:
                 
     def predict(self, name, org, source='google', image_url=None, image_file=None):
         '''
-        Predict a person's gender.
+        Predict a person's gender his or her photo.
         :param name: The person's name
         :param org: The person's organization
         :param source: Search engine, baidu or google
