@@ -1,6 +1,6 @@
 '''
 Introduction:
-Predict a scholar's identity (teacher or student) and his or her degree.
+    Predict a scholar's identity (teacher or student) and his or her degree.
 usage:
 >>> identity = TorS()
 >>> print(identity.predict(pc=10, cn=10000, hi=40, gi=0, year_range=14))
@@ -31,11 +31,11 @@ class TorS:
         Predict whether a scholar is a teacher or a student, and then predict his degree.
         :param pc: Number of papers
         :param cn: Citation number
-        :param hi: h-index. eg. An h-index of 25 means the researcher has 25 papers, each of which has been cited 25+ times.
-        :param gi: g-index. Given a set of articles ranked in decreasing order of the number of citations that they received,
+        :param hi: H-index. Eg, an h-index of 25 means the researcher has 25 papers, each of which has been cited 25+ times.
+        :param gi: G-index. Given a set of articles ranked in decreasing order of the number of citations that they received,
                    the g-index is the (unique) largest number such that the top g articles received (together) at least g^2 citations.
         :param year_range: Time range of papers
-        :return: a dictionary:
+        :return: A dictionary:
                 {
                     'label': 'student' or 'teacher',
                     'degree': 'undergraduate', 'master' or 'doctor'
@@ -60,7 +60,7 @@ class TorS:
 
     def _pre_progress(self, features):
         # Normalize and pass features to nn classifier for prediction
-        max_year_range = 53 # 53 is the max year_range in training set.
+        max_year_range = 53  # 53 is the max year_range in training set.
         normalized_features = pd.DataFrame()
         for feature in ['pc', 'cn', 'hi', 'gi']:
             normalized_features[feature] = features[feature].apply(lambda x: math.log(x + 1.0))

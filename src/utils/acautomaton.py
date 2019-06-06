@@ -1,3 +1,8 @@
+'''
+Introduction:
+The Aho-Corasick automaton is a data structure that can quickly do a multiple-keyword search across text. It’s described in the classic paper ‘Efficient string matching: an aid to bibliographic search’: http://portal.acm.org/citation.cfm?id=360855&dl=ACM&coll=GUIDE. 
+'''
+
 import queue
 
 
@@ -22,6 +27,7 @@ class ACAutomaton:
             self.getfail()
 
     def insert(self, pattern):
+        # Insert a new pattern to the trie.
         p = self.root
         for i in pattern:
             if i not in p.children.keys():
@@ -36,6 +42,7 @@ class ACAutomaton:
         return self.count
 
     def getfail(self):
+        # Use BFS algorithm to initialize 'fail' points.
         q = queue.Queue()
         q.put(self.root)
         while not q.empty():
@@ -55,6 +62,7 @@ class ACAutomaton:
                 q.put(i)
 
     def search(self, text):
+        # Do a multiple-keyword search across text
         p = self.root
         ret = []
         for i, ch in enumerate(text):
@@ -71,6 +79,11 @@ class ACAutomaton:
                     break
                 else:
                     tmp = tmp.fail
+        '''
+        In this project, we need to extract some patterns from the given text and these patterns should not intersect with each other.
+        For example, 'ac' and 'a' are both substrings of 'acb'. In this case, we just need 'ac'.
+        Here we use greedy algorithm to maximize the keywords' length.
+        '''
         ret.sort()
         ans = set()
         end = -1

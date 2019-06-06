@@ -70,7 +70,7 @@ pub_titles = ['基于多通道卷积神经网络的中文微博情感分析']
 subject = nsfc.classify(pub_titles)
 ```
 
-subject:
+`subject`:
 
 ```python
 {
@@ -103,7 +103,7 @@ subject:
 
 ![](https://img.shields.io/badge/http-post-blue.svg)
 
-An online version of the method "classify"
+An online version of the method `classify`
 
 #### Request body
 
@@ -234,7 +234,9 @@ Get a professor's research interests according to his publications' titles.
 
 #### Parameters
 
-pid: the professor's id in [AMiner](https://aminer.cn).
+##### pid
+
+the professor's id in [AMiner](https://aminer.cn).
 
 For example, you want to know Qiang Yang's research interests. First, you should search Qiang Yang in  [AMiner](https://aminer.cn), and get his page url https://www.aminer.cn/profile/qiang-yang/53f48041dabfae963d25910a. His id in [AMiner](https://aminer.cn) is the suffix of the url string `53f48041dabfae963d25910a`.
 

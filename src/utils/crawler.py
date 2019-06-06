@@ -1,4 +1,7 @@
 # coding:utf-8
+'''
+Here are some utilities which can help us search something from Baidu or Google.
+'''
 import requests
 from bs4 import BeautifulSoup
 import json

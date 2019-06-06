@@ -73,7 +73,7 @@ class JobHopping:
         his current affiliation's name
         :param name: the scholar's affiliation name
         :param ntop: How many possible affiliations will the method return
-        :return: A list of dictionary:
+        :return: A list of dictionaries:
                 {
                     'name': the most likely future affiliation's name
                     'p': the probability
@@ -106,3 +106,8 @@ class JobHopping:
         s = sum(map(lambda x: np.exp(x['p']), affis))
         for dict in affis:
             dict['p'] = round(np.exp(dict['p'])/s, 2)
+
+
+if __name__ == '__main__':
+    j = JobHopping()
+    print(j.predict('tsinghua university'))
