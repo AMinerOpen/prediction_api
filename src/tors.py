@@ -3,7 +3,7 @@ Introduction:
 Predict a scholar's identity (teacher or student) and his or her degree.
 usage:
 >>> identity = TorS()
->>> identity.predict(pc=10, cn=10000, hi=40, gi=0, year_range=14)
+>>> print(identity.predict(pc=10, cn=10000, hi=40, gi=0, year_range=14))
 '''
 import os
 import math
