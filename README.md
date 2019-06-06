@@ -18,7 +18,7 @@ _AMiner Prediction API_ is a toolkit for science data prediction, such as schola
 |            [`Tensorflow`](http://tensorflow.org/)            |   `conda install -c conda-forge tensorflow`   |
 |               [`Pytorch`](http://pytorch.org/)               |      `conda install -c pytorch pytorch`       |
 |              [`Numpy`](http://numpy.scipy.org/)              |     `conda install -c conda-forge numpy`      |
-|           [`Pandas`]((http://pandas.pydata.org/))            |     `conda install -c conda-forge pandas`     |
+|           [`Pandas`](http://pandas.pydata.org/)           |     `conda install -c conda-forge pandas`     |
 | [`BeautifulSoup4`](http://www.crummy.com/software/BeautifulSoup/) | `conda install -c conda-forge beautifulsoup4` |
 |               [`Scrapy`](https://scrapy.org/)                |     `conda install -c conda-forge scrapy`     |
 
