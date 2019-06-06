@@ -7,26 +7,26 @@ _AMiner Prediction API_ is a toolkit for science data prediction, such as schola
 
 ## Pre-requirement
 
-[`anaconda`](https://www.anaconda.com/) is strongly recommended for environment configuration. Additionally, some libraries are requied. Use following commands to install these libraries:
+[`Anaconda`](https://www.anaconda.com/) is strongly recommended for environment configuration. Additionally, some libraries are requied. Use following commands to install these libraries:
 
-|                           Library                            |                           Command                            |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-|              [`fastText`](https://fasttext.cc/)              | `conda install -c mbednarski fasttext`<font color=#ff0000 size=4 face="黑体">*</font> |
-|         [`Scikit-learn`](https://scikit-learn.org/)          |           `conda install -c anaconda scikit-learn`           |
-|          [`Jieba`](https://github.com/fxsjy/jieba)           |             `conda install -c conda-forge jieba`             |
-|         [`Requests`](https://2.python-requests.org/)         |           `conda install -c conda-forge requests`            |
-|            [`Tensorflow`](http://tensorflow.org/)            |          `conda install -c conda-forge tensorflow`           |
-|               [`Pytorch`](http://pytorch.org/)               |              `conda install -c pytorch pytorch`              |
-|              [`Numpy`](http://numpy.scipy.org/)              |             `conda install -c conda-forge numpy`             |
-| [`Pandas`]([http://pandas.pydata.org](http://pandas.pydata.org/)) |            `conda install -c conda-forge pandas`             |
-| [BeautifulSoup4](http://www.crummy.com/software/BeautifulSoup/) |        `conda install -c conda-forge beautifulsoup4`         |
-|               [`Scrapy`](https://scrapy.org/)                |            `conda install -c conda-forge scrapy`             |
+|                           Library                            |                    Command                    |
+| :----------------------------------------------------------: | :-------------------------------------------: |
+|              [`fastText`](https://fasttext.cc/)              | `conda install -c mbednarski fasttext` *****  |
+|         [`Scikit-learn`](https://scikit-learn.org/)          |   `conda install -c anaconda scikit-learn`    |
+|          [`Jieba`](https://github.com/fxsjy/jieba)           |     `conda install -c conda-forge jieba`      |
+|         [`Requests`](https://2.python-requests.org/)         |    `conda install -c conda-forge requests`    |
+|            [`Tensorflow`](http://tensorflow.org/)            |   `conda install -c conda-forge tensorflow`   |
+|               [`Pytorch`](http://pytorch.org/)               |      `conda install -c pytorch pytorch`       |
+|              [`Numpy`](http://numpy.scipy.org/)              |     `conda install -c conda-forge numpy`      |
+|           [`Pandas`]((http://pandas.pydata.org/))            |     `conda install -c conda-forge pandas`     |
+| [`BeautifulSoup4`](http://www.crummy.com/software/BeautifulSoup/) | `conda install -c conda-forge beautifulsoup4` |
+|               [`Scrapy`](https://scrapy.org/)                |     `conda install -c conda-forge scrapy`     |
 
-> <font color=#ff0000 size=4 face="黑体">*</font> If you are using **OSX**, you should use following command to intall `fastText`
-
-```bash
-conda install -c conda-forge fasttext
-```
+> ***** If you are using **OSX**, you should use following command to intall `fastText`
+>
+> ```bash
+> conda install -c conda-forge fasttext
+> ```
 
 ## Models Download
 
@@ -48,5 +48,5 @@ Extract it and move all files into `model` directory before testing code.
 
 [Jobhopping Prediction](https://github.com/AMinerOpen/prediction_api/blob/master/doc/Jobhopping_Prediction.md)
 
-[Expert_Recommendation](https://github.com/AMinerOpen/prediction_api/blob/master/doc/Expert_Recommendation.md)
+[Expert Recommendation](https://github.com/AMinerOpen/prediction_api/blob/master/doc/Expert_Recommendation.md)
 
