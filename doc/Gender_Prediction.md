@@ -70,3 +70,74 @@ gen:
 }
 ```
 
+## API
+
+### https://innovaapi.aminer.cn/tools/v1/predict
+
+![](https://img.shields.io/badge/http-get-brightgreen.svg)
+
+An online version of the method `predict`
+
+#### Parameters
+
+##### name
+
+**string**, the person's name
+
+##### org
+
+**string**, the person's organization
+
+##### image_url
+
+The photo's online url.
+
+#### Return value
+
+In the `Response` object, there will be three fields.
+
+##### status
+
+`0`: Success
+
+`1`: There are some errors.
+
+##### message
+
+`success`: Success
+
+If there are some errors, you will get the error information.
+
+##### data
+
+The return value from the method.
+
+#### An example
+
+https://innovaapi.aminer.cn/tools/v1/predict/gender?name=Feifei%20Li&org=Stanford%20University
+
+`Response`:
+
+```json
+{
+    "status": 0,
+    "message": "success",
+    "data": {
+        "male": 0.07,
+        "female": 0.93,
+        "name": {
+            "male": 0,
+            "female": 1
+        },
+        "search": {
+            "male": 0.13,
+            "female": 0.87
+        },
+        "face": {
+            "male": 0.5,
+            "female": 0.5
+        }
+    }
+}
+```
+

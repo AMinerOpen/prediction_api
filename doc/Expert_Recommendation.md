@@ -95,6 +95,26 @@ The text
 
 The number of the recommended experts.
 
+#### Return value
+
+In the `Response` object, there will be three fields.
+
+##### status
+
+`0`: Success
+
+`1`: There are some errors.
+
+##### message
+
+`success`: Success
+
+If there are some errors, you will get the error information.
+
+##### data
+
+The return value from the method.
+
 #### An example
 
 ```http

@@ -77,6 +77,26 @@ An online version of method `predict`
 
 The scholar's affiliation name
 
+#### Return value
+
+In the `Response` object, there will be three fields.
+
+##### status
+
+`0`: Success
+
+`1`: There are some errors.
+
+##### message
+
+`success`: Success
+
+If there are some errors, you will get the error infomation.
+
+##### data
+
+The return value from the method.
+
 #### An example
 
 https://innovaapi.aminer.cn/tools/v1/predict/career?org=Tsinghua%20University

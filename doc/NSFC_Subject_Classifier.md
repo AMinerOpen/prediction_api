@@ -111,6 +111,26 @@ An online version of the method `classify`
 
 A **list** of **strings**. The titles of publications.
 
+#### Return value
+
+In the `Response` object, there will be three fields.
+
+##### status
+
+`0`: Success
+
+`1`: There are some errors.
+
+##### message
+
+`success`: Success
+
+If there are some errors, you will get the error information.
+
+##### data
+
+The return value from the method.
+
 #### An example
 
 ```http
@@ -239,6 +259,26 @@ Get a professor's research interests according to his publications' titles.
 the professor's id in [AMiner](https://aminer.cn).
 
 For example, you want to know Qiang Yang's research interests. First, you should search Qiang Yang in  [AMiner](https://aminer.cn), and get his page url https://www.aminer.cn/profile/qiang-yang/53f48041dabfae963d25910a. His id in [AMiner](https://aminer.cn) is the suffix of the url string `53f48041dabfae963d25910a`.
+
+#### Return value
+
+In the `Response` object, there will be three fields.
+
+##### status
+
+`0`: Success
+
+`1`: There are some errors.
+
+##### message
+
+`success`: Success
+
+If there are some errors, you will get the error information.
+
+##### data
+
+The return value from the method.
 
 #### An example
 
