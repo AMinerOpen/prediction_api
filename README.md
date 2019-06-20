@@ -9,18 +9,19 @@ _AMiner Prediction API_ is a toolkit for science data prediction, such as schola
 
 [`Anaconda`](https://www.anaconda.com/) is strongly recommended for environment configuration. Additionally, some libraries are requied. Use following commands to install these libraries:
 
-|                           Library                            |                    Command                    |
-| :----------------------------------------------------------: | :-------------------------------------------: |
-|              [`fastText`](https://fasttext.cc/)              | `conda install -c mbednarski fasttext` *****  |
-|         [`Scikit-learn`](https://scikit-learn.org/)          |   `conda install -c anaconda scikit-learn`    |
-|          [`Jieba`](https://github.com/fxsjy/jieba)           |     `conda install -c conda-forge jieba`      |
-|         [`Requests`](https://2.python-requests.org/)         |    `conda install -c conda-forge requests`    |
-|            [`Tensorflow`](http://tensorflow.org/)            |   `conda install -c conda-forge tensorflow`   |
-|               [`Pytorch`](http://pytorch.org/)               |      `conda install -c pytorch pytorch`       |
-|              [`Numpy`](http://numpy.scipy.org/)              |     `conda install -c conda-forge numpy`      |
-|           [`Pandas`](http://pandas.pydata.org/)           |     `conda install -c conda-forge pandas`     |
-| [`BeautifulSoup4`](http://www.crummy.com/software/BeautifulSoup/) | `conda install -c conda-forge beautifulsoup4` |
-|               [`Scrapy`](https://scrapy.org/)                |     `conda install -c conda-forge scrapy`     |
+|                           Library                            |                      Command                      |
+| :----------------------------------------------------------: | :-----------------------------------------------: |
+|              [`fastText`](https://fasttext.cc/)              |   `conda install -c mbednarski fasttext` *****    |
+|         [`Scikit-learn`](https://scikit-learn.org/)          |     `conda install -c anaconda scikit-learn`      |
+|          [`Jieba`](https://github.com/fxsjy/jieba)           |       `conda install -c conda-forge jieba`        |
+|         [`Requests`](https://2.python-requests.org/)         |      `conda install -c conda-forge requests`      |
+|            [`Tensorflow`](http://tensorflow.org/)            |     `conda install -c conda-forge tensorflow`     |
+|               [`Pytorch`](http://pytorch.org/)               |        `conda install -c pytorch pytorch`         |
+|              [`Numpy`](http://numpy.scipy.org/)              |       `conda install -c conda-forge numpy`        |
+|            [`Pandas`](http://pandas.pydata.org/)             |       `conda install -c conda-forge pandas`       |
+| [`BeautifulSoup4`](http://www.crummy.com/software/BeautifulSoup/) |   `conda install -c conda-forge beautifulsoup4`   |
+|               [`Scrapy`](https://scrapy.org/)                |       `conda install -c conda-forge scrapy`       |
+|                        `Levenshtein`                         | `conda install -c conda-forge python-levenshtein` |
 
 > ***** If you are using **OSX**, you should use following command to intall `fastText`
 >

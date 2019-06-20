@@ -4,7 +4,7 @@ import requests
 def youdao_translate(text):
     url = 'http://fanyi.youdao.com/translate'
     if type(text) == list:
-        src = '.'.join(text)
+        src = ','.join(text)
     else:
         src = text
     data = {
@@ -20,3 +20,7 @@ def youdao_translate(text):
     except Exception:
         # print('There is an error in translation')
         return []
+
+
+if __name__ == '__main__':
+    print(youdao_translate(['test','apple']))

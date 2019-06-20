@@ -24,3 +24,4 @@ model/student/orgID2orgname
 model/student/model
 doc/~$API list.xlsx
 model/expert/model_aminer
+test/baidu_translator.py

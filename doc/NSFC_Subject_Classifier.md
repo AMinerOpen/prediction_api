@@ -41,7 +41,7 @@ The number of possible subjects you want to get.
 
 Whether the titles are Chinese or not. For `True`, it means you are using Chinese publications.
 
-##### tranaltion_func
+##### translation_func
 
 In fact, the classifier can only work on **Chinese** words because of the classification standard and the training data. In order to handle publications in other languages, you need to provide a translation function.  It should be able to translate a list of **strings** in another language to Chinese.
 

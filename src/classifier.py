@@ -63,7 +63,8 @@ class Classifier:
         :param pub_titles: A list of publication titles
         :param level: Classification level(1,2,3), for other numbers you will get all of levels
         :param ntop: How many subjects in each level does the classifier select
-        :param ntop: 
+        :param lang_zh: Whether the titles are Chinese or not. For True, it means you are using Chinese publications.
+        :param translation_func: In fact, the classifier can only work on Chinese words because of the classification standard and the training data. In order to handle publications in other languages, you need to provide a translation function.  It should be able to translate a list of strings in another language to Chinese.
         :return: A dictionary:
                  'level{x}'(x = 1, 2, 3)':
                      {
