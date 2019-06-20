@@ -51,3 +51,5 @@ Extract it and move all files into `model` directory before testing code.
 
 [Expert Recommendation](https://github.com/AMinerOpen/prediction_api/blob/master/doc/Expert_Recommendation.md)
 
+[Paper Ranker](https://github.com/AMinerOpen/prediction_api/blob/master/doc/Paper_Ranker.md)
+
