@@ -140,7 +140,7 @@ class AIClassifier:
         rs = {}
         if words and isinstance(words, Iterable):
             for w in words:
-                data = self._mat[level].get(w, {})
+                data = self._mat[level].get(w.lower(), {})
                 for sub_id, v in data.items():
                     if ban is None or sub_id not in ban:
                         if restrict is None or self._id2father.get(sub_id) in restrict:
@@ -190,3 +190,29 @@ class AIClassifier:
                 break
         self._norm(ret)
         return ret
+
+if __name__ == '__main__':
+    words = [
+        'Controlled Experiment',
+        'Fit Tables.',
+        'Executable Test Case',
+        'Source Code',
+        'Static Analysis',
+        'Comprehension Task',
+        'Legacy System',
+        'Web Applications',
+        'Genetic Algorithm',
+        'Test Case',
+        'Security Testing',
+        'Empirical Study',
+        'Acceptance Testing',
+        'Data Model',
+        'Fit Table',
+        'Case Study',
+        'Crosscutting Concern',
+        'Web Application',
+        'Empirical Studies',
+        'Aspect Oriented Programming'
+    ]
+    aic = AIClassifier()
+    print(aic.classify(words))

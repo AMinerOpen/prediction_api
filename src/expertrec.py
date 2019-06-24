@@ -55,3 +55,8 @@ class ExpertRec:
           'L2 distance': d
         } for i, d in enumerate(dist)]
         return heapq.nsmallest(num, ret, lambda x: x['L2 distance'])
+
+
+if __name__ == '__main__':
+    e = ExpertRec()
+    print(e.search('natural language processing'))
