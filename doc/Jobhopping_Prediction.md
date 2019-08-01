@@ -20,7 +20,7 @@ Get a scholar's possible future affiliation according to his current affiliation
 
 ##### name
 
-The scholar's affiliation name
+The scholar's name and his institution
 
 ##### ntop
 
@@ -72,8 +72,11 @@ aff = j.predict('tsinghua university')
 An online version of method `predict`
 
 #### Parameters
+##### per_name
 
-##### org
+The scholar's name
+
+##### org_name
 
 The scholar's affiliation name
 
