@@ -9,18 +9,18 @@ JobHopping is a class which is used to predict where a scholar may hop to.
 ### predict
 
 ```python
-predict(name, ntop=3)
+predict(name_squence, ntop=3)
 ```
 
 #### Introduction
 
-Get a scholar's possible future affiliation according to his current affiliation's name.
+Get a scholar's possible future affiliation according to a list(squence) of affiliation's name  where he had worked.
 
 #### Parameters
 
-##### name
+##### name_squence
 
-The scholar's name and his institution
+a list of the scholar's institution he had worded
 
 ##### ntop
 
@@ -41,7 +41,7 @@ A list of dictionaries
 
 ```python
 j = JobHopping()
-aff = j.predict('tsinghua university')
+aff = j.predict(['tsinghua university','mazandaran university','birsa agricultural university'])
 ```
 
 `aff`:
@@ -53,11 +53,11 @@ aff = j.predict('tsinghua university')
         'p': 0.33
     }, 
     {
-        'name': 'university of california berkeley',
+        'name': 'university of cambridge',
         'p': 0.33
     }, 
     {
-        'name': 'stanford university',
+        'name': 'university of california berkeley',
         'p': 0.33
     }
 ]
@@ -102,7 +102,7 @@ The return value from the method.
 
 #### An example
 
-https://innovaapi.aminer.cn/tools/v1/predict/career?org=Tsinghua%20University
+https://innovaapi.aminer.cn/tools/v1/predict/career?per_name=XXX&org_name=XXX
 
 Return Value:
 
